@@ -21,7 +21,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ toggleView }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/chat", {
+      const response = await axios.post("http://45.45.163.150:5000/chat", {
         message: userMessage,
       });
 
@@ -30,6 +30,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ toggleView }) => {
         { user: userMessage, bot: response.data.reply || "No response" },
       ]);
     } catch (error) {
+      console.error("ChatBot API Error:", error); // Logs error
       setMessages((prev) => [
         ...prev.slice(0, -1),
         { user: userMessage, bot: "Error processing request" },
@@ -59,10 +60,12 @@ const ChatBot: React.FC<ChatBotProps> = ({ toggleView }) => {
             <div key={index} className="space-y-1">
               <p
                 className={`${
-                  msg.bot === "..." ? "text-gray-500 animate-pulse" : "text-gray-300"
+                  msg.bot === "..."
+                    ? "text-gray-500 animate-pulse"
+                    : "text-gray-300"
                 }`}
               >
-                 {msg.bot}
+                {msg.bot}
               </p>
             </div>
           ))}
