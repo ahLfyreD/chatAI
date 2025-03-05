@@ -5,7 +5,8 @@ const axios = require("axios");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: '*' })); // Allow all origins (for testing)
+
 
 const AIML_API_URL = "https://api.aimlapi.com/v1/chat/completions";
 const AIML_API_KEY = process.env.AIML_API_KEY; // Store key in .env
