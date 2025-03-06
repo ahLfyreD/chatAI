@@ -3,8 +3,6 @@
 import { useState } from "react";
 import axios from "axios";
 
-
-
 interface ChatBotProps {
   toggleView: () => void;
 }
@@ -23,16 +21,9 @@ const ChatBot: React.FC<ChatBotProps> = ({ toggleView }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "https://45.45.163.144/chat",
-        { message: userMessage },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          
-        }
-      );
+      const response = await axios.post("http://45.45.163.150:5000/chat", {
+        message: userMessage,
+      });
 
       setMessages((prev) => [
         ...prev.slice(0, -1),
@@ -84,7 +75,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ toggleView }) => {
         <div className="mt-4 flex items-center gap-3">
           <input
             type="text"
-            className="flex-1 px-4 py-3 rounded-lg bg-[#232b3a] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-4 py-3 rounded-lg bg-[#232b3a] text-white placeholder-gray-400 focus:outline-none"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Enter blockchain network..."
