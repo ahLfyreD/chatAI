@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DOS.AI - Powered by CUDOS Intercloud
 
-## Getting Started
+## Overview
+DOS.AI is an intelligent chatbot application that provides instant responses to user queries related to blockchain protocols. The chatbot leverages AI-powered responses and ensures seamless communication between users and the system. This project is backed by **CUDOS Intercloud**, providing robust cloud computing resources to enhance performance and scalability.
 
-First, run the development server:
+## Features
+- Real-time chatbot interactions
+- AI-generated responses based on user input
+- Secure API requests with HTTPS handling
+- Optimized UI for seamless user experience
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
+- **Frontend:** Next.js (React), Tailwind CSS
+- **Backend:** Node.js, Express.js
+- **AI API:** AIML API
+- **Hosting & Cloud Services:** CUDO Intercloud
+- **Other:** Axios, CORS, HTTPS Agent
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How It Works
+1. Users send messages through the chat interface.
+2. The frontend communicates with the backend, which processes the request.
+3. The backend calls the AIML API to generate responses.
+4. The response is sent back and displayed in the chat UI.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
+This application is deployed on **CUDOS Intercloud** for optimal performance and reliability.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Troubleshooting
+- If CORS issues occur, ensure the backend allows requests from the frontend domain.
+- For SSL certificate warnings, the HTTPS agent has been set to bypass strict verification.
+- If responses are delayed, check API rate limits or network connectivity.
 
-## Learn More
+## Contributing
+Contributions are welcome! Feel free to submit issues or feature requests.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
+Developed with ❤️ and powered by **CUDOS Intercloud**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
