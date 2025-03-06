@@ -6,7 +6,16 @@ const https = require("https");
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'https://chat-ai-1d93.vercel.app/' })); // Allow all origins (for testing)
+app.use(cors({
+  origin: "https://chat-ai-1d93.vercel.app", // Allow only your frontend
+  methods: "GET,POST,OPTIONS",
+  allowedHeaders: "Content-Type,Authorization",
+  credentials: true // Allow cookies & authentication headers
+}));
+
+// Handle preflight requests properly
+app.options("*", cors());
+
 
 const agent = new https.Agent({
   rejectUnauthorized: false, // This is equivalent to using `-k` in curl
