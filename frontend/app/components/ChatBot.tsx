@@ -21,7 +21,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ toggleView }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://45.45.163.144/chat", {
+      const response = await axios.post("https://45.45.163.144/chat", {
         message: userMessage,
       }, {
         headers: {
