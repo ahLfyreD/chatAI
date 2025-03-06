@@ -2,10 +2,15 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
+const https = require("https");
 
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: '*' })); // Allow all origins (for testing)
+
+const agent = new https.Agent({
+  rejectUnauthorized: false, // This is equivalent to using `-k` in curl
+});
 
 
 const AIML_API_URL = "https://api.aimlapi.com/v1/chat/completions";
@@ -39,6 +44,7 @@ app.post("/chat", async (req, res) => {
           Authorization: `Bearer ${AIML_API_KEY}`,
           "Content-Type": "application/json",
         },
+        httpsAgent: agent,
       }
     );
 
