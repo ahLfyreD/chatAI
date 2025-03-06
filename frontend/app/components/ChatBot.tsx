@@ -3,6 +3,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+
+
 interface ChatBotProps {
   toggleView: () => void;
 }
@@ -21,9 +23,16 @@ const ChatBot: React.FC<ChatBotProps> = ({ toggleView }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post("https://45.45.163.144/chat", {
-        message: userMessage,
-      });
+      const response = await axios.post(
+        "https://45.45.163.144/chat",
+        { message: userMessage },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          
+        }
+      );
 
       setMessages((prev) => [
         ...prev.slice(0, -1),
